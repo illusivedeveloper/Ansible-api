@@ -13,9 +13,37 @@
     api:
       action: POST
       url: "https://jsonplaceholder.typicode.com/posts"
-      data: '{"id" : "101", "title" : "foo", "body" : "bar", "userId" : "1"}'
-      headers: '{"Content-type" : "application/json; charset=UTF-8"}'
+      data: '{"title" : "foo", "body" : "bar", "userId" : "1"}'
     register: response
   
   - debug:
+      var: response
+
+  - name: Updating a resource.
+    api:
+      action: PUT
+      url: "https://jsonplaceholder.typicode.com/posts/1"
+      data: '{"id" : "1", "title" : "foo", "body" : "bar", "userId" : "1"}'
+    register: response
+  
+  - debug:
+      var: response
+
+  - name: Patching a resource.
+    api:
+      action: PATCH
+      url: "https://jsonplaceholder.typicode.com/posts/1"
+      data: '{"title" : "foo"}'
+    register: response
+  
+  - debug:
+      var: response
+
+  - name: Delete all resources.
+    api: 
+      action: DELETE
+      url: "https://jsonplaceholder.typicode.com/posts/1" 
+    register: response
+
+  - debug: 
       var: response
