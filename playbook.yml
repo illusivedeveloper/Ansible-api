@@ -1,0 +1,9 @@
+- hosts: localhost
+  tasks:
+  - name: GET call Execution
+    api: 
+      action: GET
+      url: "https://jsonplaceholder.typicode.com" 
+    register: result
+
+  - debug: var=result
