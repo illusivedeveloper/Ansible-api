@@ -1,1 +1,1 @@
-Ansible-api
+Ansible REST api module.
