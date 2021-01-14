@@ -15,7 +15,7 @@ def postcall(url, data):
     if r.status_code == 201:
         module.exit_json(changed=False, response=r.json())
     else:
-        module.fail_json(msg="Error calling api.")
+        module.fail_json(msg="Error calling API.")
 
 def putcall(url, data):
     r = requests.put(url=url, data=data)
